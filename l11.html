@@ -1,0 +1,142 @@
+<html>
+<body>
+
+<h1>Sliding Window & Two Pointer Techniques</h1>
+
+<h2>1. Two Pointer Technique</h2>
+
+<h3>Concept</h3>
+
+<p>The Two Pointer technique uses two pointers to traverse data structures (typically arrays or strings) from different positions. The pointers can move in the same direction, opposite directions, or at different speeds.</p>
+
+<h3>Common Patterns</h3>
+
+<ul>
+<li><strong>Opposite Direction:</strong> Pointers start at both ends and move toward each other</li>
+<li><strong>Same Direction:</strong> Both pointers start at the beginning and move forward</li>
+<li><strong>Fast-Slow Pointers:</strong> One pointer moves faster than the other</li>
+</ul>
+
+<h3>When to Use</h3>
+
+<ul>
+<li>Sorted array problems</li>
+<li>Pair sum problems</li>
+<li>Palindrome validation</li>
+<li>In-place array modifications</li>
+<li>Linked list cycles</li>
+</ul>
+
+<h3>LeetCode Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/">Two Sum II - Input Array Is Sorted</a></li>
+<li><a href="https://leetcode.com/problems/3sum/">3Sum</a></li>
+<li><a href="https://leetcode.com/problems/container-with-most-water/">Container With Most Water</a></li>
+<li><a href="https://leetcode.com/problems/valid-palindrome/">Valid Palindrome</a></li>
+<li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/">Remove Duplicates from Sorted Array</a></li>
+</ul>
+
+<hr>
+
+<h2>2. Sliding Window Technique</h2>
+
+<h3>Concept</h3>
+
+<p>The Sliding Window technique maintains a window (subarray) that slides through the array/string. It's optimized to avoid redundant calculations by adjusting window boundaries.</p>
+
+<h3>Key Components</h3>
+
+<ul>
+<li><strong>Window:</strong> Contiguous subarray/substring being considered</li>
+<li><strong>Window Boundaries:</strong> Left and right pointers defining the window</li>
+<li><strong>Window Condition:</strong> Condition that determines when to shrink/expand the window</li>
+</ul>
+
+<h3>When to Use</h3>
+
+<ul>
+<li>Subarray/substring problems with fixed or variable size</li>
+<li>Problems asking for minimum/maximum subarray satisfying conditions</li>
+<li>String permutation problems</li>
+<li>Problems with constraints (sum, unique characters, etc.)</li>
+</ul>
+
+<h3>Types of Sliding Windows</h3>
+
+<ul>
+<li><strong>Fixed Size:</strong> Window size is predetermined</li>
+<li><strong>Variable Size:</strong> Window size changes based on conditions</li>
+</ul>
+
+<h3>LeetCode Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></li>
+<li><a href="https://leetcode.com/problems/minimum-window-substring/">Minimum Window Substring</a></li>
+<li><a href="https://leetcode.com/problems/sliding-window-maximum/">Sliding Window Maximum</a></li>
+<li><a href="https://leetcode.com/problems/permutation-in-string/">Permutation in String</a></li>
+<li><a href="https://leetcode.com/problems/longest-repeating-character-replacement/">Longest Repeating Character Replacement</a></li>
+</ul>
+
+<hr>
+
+<h2>Comparison Table</h2>
+
+<table border="1">
+<tr>
+<th>Aspect</th>
+<th>Two Pointer</th>
+<th>Sliding Window</th>
+</tr>
+<tr>
+<td>Primary Use</td>
+<td>Pair searching, opposite ends traversal</td>
+<td>Contiguous subarray/substring problems</td>
+</tr>
+<tr>
+<td>Pointer Movement</td>
+<td>Independent or coordinated movement</td>
+<td>Sequential sliding movement</td>
+</tr>
+<tr>
+<td>Typical Data Structure</td>
+<td>Arrays, Strings, Linked Lists</td>
+<td>Arrays, Strings</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Often O(n)</td>
+<td>Often O(n)</td>
+</tr>
+<tr>
+<td>Window Concept</td>
+<td>No explicit window</td>
+<td>Explicit window maintained</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Implementation Tips</h2>
+
+<h3>Two Pointer Tips</h3>
+
+<ul>
+<li>Sort the array first if needed</li>
+<li>Clearly define pointer movement conditions</li>
+<li>Handle duplicate values carefully</li>
+<li>Consider edge cases (empty input, single element)</li>
+</ul>
+
+<h3>Sliding Window Tips</h3>
+
+<ul>
+<li>Use hash maps for character counting</li>
+<li>Maintain window invariants consistently</li>
+<li>Track window state efficiently</li>
+<li>Determine when to shrink/expand the window</li>
+</ul>
+
+</body>
+</html>

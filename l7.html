@@ -1,0 +1,111 @@
+<h1>Recursion PatternWise: Get a Strong Hold</h1>
+<h2>What is Recursion?</h2>
+<p>Recursion is a programming technique where a function calls itself directly or indirectly to solve a problem. The recursive approach breaks down complex problems into smaller, similar subproblems until they become simple enough to solve directly.</p>
+
+<h2>Key Components of Recursion</h2>
+<h3>1. Base Case</h3>
+<p>The condition that stops the recursion. Without a proper base case, recursive functions can run infinitely.</p>
+
+<h3>2. Recursive Case</h3>
+<p>The part where the function calls itself with modified parameters to make progress toward the base case.</p>
+
+<h2>How Recursion Works</h2>
+<p>Recursion uses the call stack to keep track of function calls. Each recursive call pushes a new frame onto the stack until the base case is reached, then the stack unwinds as each call returns its result.</p>
+
+<h2>Types of Recursion</h2>
+<h3>1. Direct Recursion</h3>
+<p>Function calls itself directly.</p>
+
+<h3>2. Indirect Recursion</h3>
+<p>Function A calls function B, which calls function A.</p>
+
+<h3>3. Tail Recursion</h3>
+<p>Recursive call is the last operation in the function. Can be optimized by compilers.</p>
+
+<h3>4. Non-Tail Recursion</h3>
+<p>Recursive call is not the last operation; additional computations are performed after the recursive call.</p>
+
+<h1>Subsequences Pattern</h1>
+<h2>What are Subsequences?</h2>
+<p>A subsequence is a sequence derived from another sequence by deleting zero or more elements without changing the order of remaining elements. Unlike subarrays, subsequences are not contiguous.</p>
+
+<h2>Key Characteristics</h2>
+<ul>
+<li>Order is preserved from original sequence</li>
+<li>Not necessarily contiguous</li>
+<li>Total subsequences for sequence of length n: 2^n (including empty subsequence)</li>
+</ul>
+
+<h2>Recursive Approach for Subsequences</h2>
+<h3>Common Strategy: Pick and Don't Pick</h3>
+<p>At each element, we have two choices:
+<ol>
+<li>Include the current element in subsequence</li>
+<li>Exclude the current element from subsequence</li>
+</ol>
+</p>
+
+<h3>Template Code for Generating Subsequences</h3>
+<pre>
+void generateSubsequences(vector<int>& nums, int index, vector<int>& current, vector<vector<int>>& result) {
+    if(index == nums.size()) {
+        result.push_back(current);
+        return;
+    }
+    
+    // Include current element
+    current.push_back(nums[index]);
+    generateSubsequences(nums, index + 1, current, result);
+    current.pop_back();
+    
+    // Exclude current element
+    generateSubsequences(nums, index + 1, current, result);
+}
+</pre>
+
+<h2>Applications of Subsequences Pattern</h2>
+<ul>
+<li>Generating all possible subsets</li>
+<li>Checking if a string is subsequence of another</li>
+<li>Longest Common Subsequence problems</li>
+<li>Counting specific types of subsequences</li>
+</ul>
+
+<h1>LeetCode Problems</h1>
+
+<h2>Recursion Fundamentals</h2>
+<ul>
+<li><a href="https://leetcode.com/problems/fibonacci-number/">509. Fibonacci Number</a></li>
+<li><a href="https://leetcode.com/problems/powx-n/">50. Pow(x, n)</a></li>
+<li><a href="https://leetcode.com/problems/climbing-stairs/">70. Climbing Stairs</a></li>
+<li><a href="https://leetcode.com/problems/permutations/">46. Permutations</a></li>
+<li><a href="https://leetcode.com/problems/combinations/">77. Combinations</a></li>
+</ul>
+
+<h2>Subsequences Pattern Problems</h2>
+<ul>
+<li><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></li>
+<li><a href="https://leetcode.com/problems/subsets-ii/">90. Subsets II</a></li>
+<li><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></li>
+<li><a href="https://leetcode.com/problems/is-subsequence/">392. Is Subsequence</a></li>
+<li><a href="https://leetcode.com/problems/longest-common-subsequence/">1143. Longest Common Subsequence</a></li>
+<li><a href="https://leetcode.com/problems/distinct-subsequences/">115. Distinct Subsequences</a></li>
+<li><a href="https://leetcode.com/problems/count-number-of-special-subsequences/">1955. Count Number of Special Subsequences</a></li>
+</ul>
+
+<h2>Advanced Recursion Problems</h2>
+<ul>
+<li><a href="https://leetcode.com/problems/generate-parentheses/">22. Generate Parentheses</a></li>
+<li><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/">17. Letter Combinations of a Phone Number</a></li>
+<li><a href="https://leetcode.com/problems/n-queens/">51. N-Queens</a></li>
+<li><a href="https://leetcode.com/problems/sudoku-solver/">37. Sudoku Solver</a></li>
+</ul>
+
+<h1>Practice Tips</h1>
+<ul>
+<li>Always identify the base case first</li>
+<li>Draw recursion tree to visualize the flow</li>
+<li>Practice both including and excluding element patterns</li>
+<li>Understand time and space complexity of recursive solutions</li>
+<li>Learn to convert recursive solutions to iterative ones</li>
+</ul>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode String Problems - Approaches & Hints</title>
+</head>
+<body>
+    <h1>LeetCode String Problems - Approaches & Hints</h1>
+    <p>Practice these problems with hints only - no direct solutions!</p>
+
+    <h2>🟢 Basic Level Problems</h2>
+    
+    <div class="problem">
+        <h3>1. <a href="https://leetcode.com/problems/reverse-string/" target="_blank">Reverse String (#344)</a></h3>
+        <p><strong>Hint:</strong> Use two pointers - one at start, one at end</p>
+        <p><strong>Approach:</strong> Think about in-place modification. What's the stopping condition?</p>
+    </div>
+
+    <div class="problem">
+        <h3>2. <a href="https://leetcode.com/problems/valid-palindrome/" target="_blank">Valid Palindrome (#125)</a></h3>
+        <p><strong>Hint:</strong> Compare characters from both ends, skipping non-alphanumeric characters</p>
+        <p><strong>Approach:</strong> How to handle case sensitivity? What about spaces and punctuation?</p>
+    </div>
+
+    <div class="problem">
+        <h3>3. <a href="https://leetcode.com/problems/first-unique-character-in-a-string/" target="_blank">First Unique Character (#387)</a></h3>
+        <p><strong>Hint:</strong> Track character frequencies, find first character with count = 1</p>
+        <p><strong>Approach:</strong> What data structure helps with frequency counting? Can you do it in one pass?</p>
+    </div>
+
+    <h2>🟡 Medium Level Problems</h2>
+
+    <div class="problem">
+        <h3>4. <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">Longest Substring Without Repeating Characters (#3)</a></h3>
+        <p><strong>Hint:</strong> Use sliding window with a set to track current characters</p>
+        <p><strong>Approach:</strong> When do you expand the window? When do you shrink it? How to efficiently check for duplicates?</p>
+    </div>
+
+    <div class="problem">
+        <h3>5. <a href="https://leetcode.com/problems/group-anagrams/" target="_blank">Group Anagrams (#49)</a></h3>
+        <p><strong>Hint:</strong> Anagrams have the same sorted character order</p>
+        <p><strong>Approach:</strong> What makes a good key for grouping? Can you think of alternative keys besides sorting?</p>
+    </div>
+
+    <div class="problem">
+        <h3>6. <a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank">Longest Palindromic Substring (#5)</a></h3>
+        <p><strong>Hint:</strong> Expand around center - consider both odd and even length palindromes</p>
+        <p><strong>Approach:</strong> For each position, how far can you expand while maintaining palindrome property? What are the base cases?</p>
+    </div>
+
+    <div class="problem">
+        <h3>7. <a href="https://leetcode.com/problems/string-to-integer-atoi/" target="_blank">String to Integer (atoi) (#8)</a></h3>
+        <p><strong>Hint:</strong> Process character by character, handling edge cases systematically</p>
+        <p><strong>Approach:</strong> What are all the possible edge cases? How to handle overflow?</p>
+    </div>
+
+    <div class="problem">
+        <h3>8. <a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/" target="_blank">Find All Anagrams in a String (#438)</a></h3>
+        <p><strong>Hint:</strong> Use sliding window with frequency maps</p>
+        <p><strong>Approach:</strong> How to efficiently compare frequency of current window with target? When to slide the window?</p>
+    </div>
+
+    <h2>💡 General String Problem Strategies</h2>
+    <ul>
+        <li><strong>Two Pointers</strong> - for palindrome, reverse, or comparison problems</li>
+        <li><strong>Sliding Window</strong> - for substring problems</li>
+        <li><strong>Hash Map</strong> - for frequency counting and anagrams</li>
+        <li><strong>Sorting</strong> - when order matters for comparison</li>
+        <li><strong>Dynamic Programming</strong> - for complex substring patterns</li>
+    </ul>
+
+    <hr>
+    <p><em>Remember: Try to solve these using only the hints before looking up solutions!</em></p>
+</body>
+</html>

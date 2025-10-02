@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Binary Search Trees Guide</title>
+</head>
+<body>
+    <h1>Binary Search Trees (BST)</h1>
+<h2>Core Concept</h2>
+<p>A Binary Search Tree is a node-based binary tree data structure with the following properties:</p>
+<ul>
+    <li>The left subtree of a node contains only nodes with values less than the node's value</li>
+    <li>The right subtree of a node contains only nodes with values greater than the node's value</li>
+    <li>Both left and right subtrees must also be binary search trees</li>
+    <li>There are no duplicate nodes</li>
+</ul>
+
+<h2>Key Operations</h2>
+
+<h3>Search</h3>
+<p><strong>Time Complexity:</strong> O(h) where h is tree height</p>
+<p><strong>Algorithm:</strong></p>
+<ol>
+    <li>Start from root</li>
+    <li>If target equals current node value - found</li>
+    <li>If target less than current node - search left subtree</li>
+    <li>If target greater than current node - search right subtree</li>
+    <li>Repeat until found or reach null</li>
+</ol>
+
+<h3>Insertion</h3>
+<p><strong>Time Complexity:</strong> O(h)</p>
+<p><strong>Algorithm:</strong></p>
+<ol>
+    <li>Find appropriate position using search logic</li>
+    <li>Insert new node at leaf position where it belongs</li>
+    <li>Maintain BST property during insertion</li>
+</ol>
+
+<h3>Deletion</h3>
+<p><strong>Time Complexity:</strong> O(h)</p>
+<p><strong>Three Cases:</strong></p>
+<ol>
+    <li><strong>No children:</strong> Simply remove node</li>
+    <li><strong>One child:</strong> Replace node with its child</li>
+    <li><strong>Two children:</strong>
+        <ul>
+            <li>Find inorder successor (minimum in right subtree) or predecessor (maximum in left subtree)</li>
+            <li>Replace node value with successor value</li>
+            <li>Delete successor from original position</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Important Properties</h2>
+<ul>
+    <li><strong>Inorder Traversal:</strong> Produces sorted sequence</li>
+    <li><strong>Minimum Element:</strong> Leftmost node</li>
+    <li><strong>Maximum Element:</strong> Rightmost node</li>
+    <li><strong>Height:</strong> Ranges from O(log n) for balanced trees to O(n) for skewed trees</li>
+    <li><strong>Successor/Predecessor:</strong> Can be found in O(h) time</li>
+</ul>
+
+<h2>Complexity Analysis</h2>
+<table border="1">
+    <tr>
+        <th>Operation</th>
+        <th>Average Case</th>
+        <th>Worst Case</th>
+    </tr>
+    <tr>
+        <td>Search</td>
+        <td>O(log n)</td>
+        <td>O(n)</td>
+    </tr>
+    <tr>
+        <td>Insertion</td>
+        <td>O(log n)</td>
+        <td>O(n)</td>
+    </tr>
+    <tr>
+        <td>Deletion</td>
+        <td>O(log n)</td>
+        <td>O(n)</td>
+    </tr>
+    <tr>
+        <td>Space</td>
+        <td colspan="2">O(n)</td>
+    </tr>
+</table>
+
+<h2>Common Variations</h2>
+<ul>
+    <li><strong>Balanced BST:</strong> AVL Tree, Red-Black Tree (maintain O(log n) height)</li>
+    <li><strong>Self-balancing:</strong> Automatically maintain balance during operations</li>
+    <li><strong>Augmented BST:</strong> Additional data in nodes (size, rank, etc.)</li>
+</ul>
+
+<h2>LeetCode Problems</h2>
+
+<h3>Fundamental Problems</h3>
+<ul>
+    <li><a href="https://leetcode.com/problems/validate-binary-search-tree/">98. Validate Binary Search Tree</a> - Check if BST is valid</li>
+    <li><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/">701. Insert into a Binary Search Tree</a> - Basic insertion</li>
+    <li><a href="https://leetcode.com/problems/delete-node-in-a-bst/">450. Delete Node in a BST</a> - Implementation of deletion</li>
+    <li><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a> - Basic search operation</li>
+</ul>
+
+<h3>Medium Problems</h3>
+<ul>
+    <li><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/">108. Convert Sorted Array to Binary Search Tree</a> - Create balanced BST</li>
+    <li><a href="https://leetcode.com/problems/balance-a-binary-search-tree/">1382. Balance a Binary Search Tree</a> - Rebalance existing BST</li>
+    <li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">230. Kth Smallest Element in a BST</a> - Inorder traversal application</li>
+    <li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">235. Lowest Common Ancestor of a Binary Search Tree</a> - Use BST properties</li>
+</ul>
+
+<h3>Advanced Problems</h3>
+<ul>
+    <li><a href="https://leetcode.com/problems/recover-binary-search-tree/">99. Recover Binary Search Tree</a> - Fix swapped nodes</li>
+    <li><a href="https://leetcode.com/problems/unique-binary-search-trees/">96. Unique Binary Search Trees</a> - Counting BSTs (DP)</li>
+    <li><a href="https://leetcode.com/problems/unique-binary-search-trees-ii/">95. Unique Binary Search Trees II</a> - Generate all BSTs</li>
+    <li><a href="https://leetcode.com/problems/binary-search-tree-iterator/">173. Binary Search Tree Iterator</a> - Controlled inorder traversal</li>
+    <li><a href="https://leetcode.com/problems/contains-duplicate-iii/">220. Contains Duplicate III</a> - BST with windowing</li>
+</ul>
+
+<h2>Implementation Tips</h2>
+<ul>
+    <li>Always validate BST property during operations</li>
+    <li>Use recursive approaches for simpler implementation</li>
+    <li>Consider iterative approaches for space efficiency</li>
+    <li>For balanced trees, consider using library implementations (TreeSet in Java, set in C++)</li>
+    <li>Practice both recursive and iterative implementations</li>
+</ul>
+
+<h2>Common Mistakes</h2>
+<ul>
+    <li>Not handling edge cases (empty tree, single node)</li>
+    <li>Forgetting to update parent pointers during deletion</li>
+    <li>Incorrectly validating BST (only checking immediate children)</li>
+    <li>Not considering duplicate values (if allowed by problem)</li>
+    <li>Memory leaks in manual memory management languages</li>
+</ul>
+
+</body>
+</html>

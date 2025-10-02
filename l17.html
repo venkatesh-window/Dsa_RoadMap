@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trie Data Structure</title>
+</head>
+<body>
+<h1>Tries (Prefix Trees)</h1>
+<h2>1. What is a Trie?</h2>
+<p>A Trie, also known as a prefix tree or digital tree, is a tree-like data structure that is used for efficient retrieval of a key in a large dataset of strings. Unlike a binary search tree, no node in the tree stores the key associated with that node. Instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string.</p>
+<h2>2. Why Use a Trie?</h2>
+<p>Tries are particularly useful for problems involving strings and prefixes. Their main advantages over hash tables or balanced binary search trees include:</p>
+<ul>
+<li><strong>Prefix-based Search:</strong> Tries excel at finding all keys with a common prefix. Operations like startsWith() are very efficient.</li>
+<li><strong>No Collisions:</strong> In a Trie, there are no collisions of different keys, which can be an issue in hash tables.</li>
+<li><strong>Alphabetical Ordering:</strong> Tries can be used to easily retrieve all strings in alphabetical order.</li>
+<li><strong>Time Complexity:</strong> The lookup time for a string of length L is guaranteed to be O(L), whereas for a hash table, it can be O(L) in the average case but O(N*L) in the worst case due to collisions (where N is the number of strings).</li>
+</ul>
+<h2>3. Structure of a Trie Node</h2>
+<p>A Trie node is the fundamental building block of the data structure. Each node typically contains:</p>
+<ul>
+<li>An array (or map) of pointers to its children nodes. The size of this array is often fixed based on the number of possible characters in the alphabet (e.g., 26 for lowercase English letters, 2 for binary numbers).</li>
+<li>A boolean flag, often called isEndOfWord, which indicates whether the path from the root to this node represents a complete word stored in the Trie.</li>
+</ul>
+<p>A common implementation for lowercase English letters in C/C++ would look like this:</p>
+<pre>
+struct TrieNode {
+struct TrieNode *children[26];
+bool isEndOfWord;
+};
+</pre>
+<h2>4. Core Operations</h2>
+<h3>A. Insertion (insert)</h3>
+<p>To insert a word into a Trie, we traverse the tree from the root, character by character. For each character in the word:</p>
+<ol>
+<li>Check if a child node corresponding to the current character exists.</li>
+<li>If it does not exist, create a new node and link it from the current node.</li>
+<li>Move to the child node.</li>
+</ol>
+<p>After processing the last character of the word, we mark the final node's isEndOfWord flag as true.</p>
+<h3>B. Search (search)</h3>
+<p>To search for a complete word in a Trie, we follow a path from the root that corresponds to the characters of the word.</p>
+<ol>
+<li>Start from the root node.</li>
+<li>For each character in the word, check if a child node exists for that character.</li>
+<li>If at any point a child node does not exist, the word is not in the Trie, so we return false.</li>
+<li>If a path exists for the entire word, we then check the isEndOfWord flag of the final node. If it is true, the word exists. Otherwise, it is just a prefix of another word.</li>
+</ol>
+<h3>C. Prefix Search (startsWith)</h3>
+<p>This operation is very similar to the search operation. The goal is to check if there is any word in the Trie that starts with a given prefix.</p>
+<ol>
+<li>Start from the root node.</li>
+<li>For each character in the prefix, check if a corresponding child node exists.</li>
+<li>If a child does not exist for any character in the prefix, it means no word starts with this prefix, so we return false.</li>
+<li>If we successfully traverse the entire prefix, it means at least one word in the Trie has this prefix. We return true. We do not need to check the isEndOfWord flag.</li>
+</ol>
+<h2>5. Complexity Analysis</h2>
+<p>Let L be the length of the string (word or prefix) and N be the number of strings stored in the Trie.</p>
+<ul>
+<li><strong>Time Complexity:</strong></li>
+<ul>
+<li>Insertion: O(L). We process each character of the string once.</li>
+<li>Search: O(L). We traverse a path of length L.</li>
+<li>Prefix Search: O(L). We traverse a path of length L.</li>
+</ul>
+<li><strong>Space Complexity:</strong></li>
+<ul>
+<li>The space complexity in the worst case is O(M * L_avg), where M is the number of words and L_avg is the average word length. This happens when all words share no common prefixes. The number of nodes is proportional to the total number of characters in all words.</li>
+</ul>
+</ul>
+<h2>6. LeetCode Problems on Tries</h2>
+<table border="1">
+<thead>
+<tr>
+<th>Problem Title</th>
+<th>LeetCode Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>208. Implement Trie (Prefix Tree)</td>
+<td><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">https://leetcode.com/problems/implement-trie-prefix-tree/</a></td>
+</tr>
+<tr>
+<td>211. Design Add and Search Words Data Structure</td>
+<td><a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/">https://leetcode.com/problems/design-add-and-search-words-data-structure/</a></td>
+</tr>
+<tr>
+<td>212. Word Search II</td>
+<td><a href="https://leetcode.com/problems/word-search-ii/">https://leetcode.com/problems/word-search-ii/</a></td>
+</tr>
+<tr>
+<td>421. Maximum XOR of Two Numbers in an Array</td>
+<td><a href="https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/">https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/</a></td>
+</tr>
+<tr>
+<td>648. Replace Words</td>
+<td><a href="https://leetcode.com/problems/replace-words/">https://leetcode.com/problems/replace-words/</a></td>
+</tr>
+<tr>
+<td>677. Map Sum Pairs</td>
+<td><a href="https://leetcode.com/problems/map-sum-pairs/">https://leetcode.com/problems/map-sum-pairs/</a></td>
+</tr>
+<tr>
+<td>745. Prefix and Suffix Search</td>
+<td><a href="https://leetcode.com/problems/prefix-and-suffix-search/">https://leetcode.com/problems/prefix-and-suffix-search/</a></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

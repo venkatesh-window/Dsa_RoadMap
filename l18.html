@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String Problems</title>
+</head>
+<body>
+<h1>String Problems on LeetCode</h1>
+<h2>Pattern: Two Pointers / Sliding Window</h2>
+<h3>3. Longest Substring Without Repeating Characters</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">https://leetcode.com/problems/longest-substring-without-repeating-characters/</a></p>
+<p><b>Approach:</b> Use the sliding window technique with two pointers, left and right, to define the current substring. Use a data structure like a hash set or an array to keep track of characters currently inside the window.</p>
+<p><b>Hints:</b></p>
+<ul>
+<li>Expand the window by incrementing the right pointer.</li>
+<li>As you expand, add the new character to your set.</li>
+<li>If the character is already in the set, it means you have a repeat. You must shrink the window from the left by incrementing the left pointer and removing characters from the set until the duplicate is gone.</li>
+<li>Update the maximum length after each expansion of the window.</li>
+</ul>
+<h3>5. Longest Palindromic Substring</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/longest-palindromic-substring/">https://leetcode.com/problems/longest-palindromic-substring/</a></p>
+<p><b>Approach:</b> A common and intuitive approach is "Expand Around Center". Iterate through every character (or space between characters) in the string and treat it as a potential center of a palindrome. From each center, expand outwards using two pointers to find the longest palindrome.</p>
+<p><b>Hints:</b></p>
+<ul>
+<li>You need to handle two cases for the center: a single character (for odd-length palindromes like "racecar") and the space between two characters (for even-length palindromes like "aabbaa").</li>
+<li>Create a helper function that takes two pointers (left and right) and expands them as long as they are in bounds and the characters at those positions are equal.</li>
+<li>Keep track of the start index and the maximum length of the palindrome found so far.</li>
+</ul>
+<h2>Pattern: Hashing / Frequency Counting</h2>
+<h3>49. Group Anagrams</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/group-anagrams/">https://leetcode.com/problems/group-anagrams/</a></p>
+<p><b>Approach:</b> The core idea is to map each string to a unique key that is the same for all its anagrams. A hash map can be used to group the strings based on this key.</p>
+<p><b>Hints:</b></p>
+<ul>
+<li>What makes two strings anagrams? They have the same characters with the same frequencies.</li>
+<li>One way to create a key is to sort the string. "eat" and "tea" both become "aet".</li>
+<li>Another way is to create a frequency count of characters (e.g., a 26-element array for lowercase letters) and use that as a key. You would need to convert this array into a hashable format, like a tuple or a delimited string.</li>
+</ul>
+<h3>242. Valid Anagram</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/valid-anagram/">https://leetcode.com/problems/valid-anagram/</a></p>
+<p><b>Approach:</b> Use a frequency map (an array or a hash map) to count the character occurrences in both strings. Then, compare the frequency maps.</p>
+<p><b>Hints:</b></p>
+<ul>
+<li>A simple first check: if the strings do not have the same length, they cannot be anagrams.</li>
+<li>You can use one array of size 26. Iterate through the first string and increment the count for each character. Then, iterate through the second string and decrement the count.</li>
+<li>If all counts in the array are zero at the end, the strings are anagrams. If any count becomes negative during the second iteration, they are not.</li>
+</ul>
+<h2>Pattern: String Matching</h2>
+<h3>28. Find the Index of the First Occurrence in a String</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/">https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/</a></p>
+<p><b>Approach:</b> This problem can be solved with a straightforward sliding window check, but it's a great introduction to more advanced string matching algorithms like KMP (Knuth-Morris-Pratt) or Rabin-Karp.</p>
+<p><b>Hints (for Rabin-Karp approach):</b></p>
+<ul>
+<li>The Rabin-Karp algorithm uses hashing to find a substring.</li>
+<li>Calculate the hash of the needle string.</li>
+<li>Then, slide a window of the same length across the haystack, calculating the hash of each substring. Use a "rolling hash" technique to update the hash in O(1) time for each slide.</li>
+<li>If the hash of a window matches the needle's hash, do a character-by-character comparison to confirm it's a true match and not a hash collision.</li>
+</ul>
+<h2>Pattern: Dynamic Programming</h2>
+<h3>72. Edit Distance</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/edit-distance/">https://leetcode.com/problems/edit-distance/</a></p>
+<p><b>Approach:</b> This is a classic dynamic programming problem. Create a 2D array dp[i][j] which stores the minimum number of operations (insert, delete, replace) required to transform the first i characters of word1 into the first j characters of word2.</p>
+<p><b>Hints:</b></p>
+<ul>
+<li>The size of the DP table will be (len(word1) + 1) x (len(word2) + 1).</li>
+<li><b>Base Cases:</b> The first row and column represent transforming a prefix into an empty string (or vice-versa), which requires i deletions or j insertions. So, dp[i][0] = i and dp[0][j] = j.</li>
+<li><b>Transitions:</b>
+<ul>
+<li>If word1[i-1] == word2[j-1], no operation is needed for these characters, so dp[i][j] = dp[i-1][j-1].</li>
+<li>If word1[i-1] != word2[j-1], you must perform an operation. The cost is 1 plus the minimum of the three possible previous states:
+<ul>
+<li>Replace: dp[i-1][j-1]</li>
+<li>Delete (from word1): dp[i-1][j]</li>
+<li>Insert (into word1): dp[i][j-1]</li>
+</ul>
+</li>
+</ul>
+<li>The final answer is in dp[len(word1)][len(word2)].</li>
+</ul>
+<h2>Pattern: String Simulation / Parsing</h2>
+<h3>8. String to Integer (atoi)</h3>
+<p><b>Link:</b> <a href="https://leetcode.com/problems/string-to-integer-atoi/">https://leetcode.com/problems/string-to-integer-atoi/</a></p>
+<p><b>Approach:</b> This problem requires a careful, step-by-step simulation of the parsing process. You must handle numerous edge cases in a specific order.</p>
+<p><b>Hints:</b></p>
+<ol>
+<li>Read and discard any leading whitespace.</li>
+<li>Check for the next character. If it's '+' or '-', record the sign.</li>
+<li>Read the subsequent characters as long as they are digits. Stop at the first non-digit character.</li>
+<li>Convert the sequence of digits into a number.</li>
+<li>While building the number, you must check for integer overflow (INT_MAX / INT_MIN). A good way to do this is to check if current_number > INT_MAX / 10 before you multiply by 10 and add the next digit.</li>
+<li>Apply the sign and return the final number, clamped to the 32-bit signed integer range.</li>
+</ol>
+</body>
+</html>

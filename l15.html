@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Graphs Concepts & Problems</title>
+</head>
+<body>
+<h1>Graphs: Concepts and Problems</h1>
+<p>This document provides a detailed and structured explanation of graph theory concepts, including data structures for representation, common algorithms, and relevant LeetCode problems.</p>
+<hr>
+<h2>1. Introduction to Graphs</h2>
+<p>A graph is a non-linear data structure consisting of a set of vertices (or nodes) and a set of edges that connect these vertices. A graph is formally defined as a pair G = (V, E), where V is the set of vertices and E is the set of edges.</p>
+<h3>Types of Graphs</h3>
+<ul>
+<li><b>Undirected Graph:</b> Edges have no orientation. An edge (u, v) is the same as (v, u).</li>
+<li><b>Directed Graph (Digraph):</b> Edges have a direction. An edge (u, v) goes from vertex u to vertex v.</li>
+<li><b>Weighted Graph:</b> Each edge is assigned a weight or cost. This can represent distance, time, or any other measurable value.</li>
+<li><b>Unweighted Graph:</b> Edges do not have weights. They are all considered to have a uniform cost (usually 1).</li>
+<li><b>Cyclic Graph:</b> A graph that contains at least one path that starts and ends at the same vertex.</li>
+<li><b>Acyclic Graph:</b> A graph with no cycles. A Directed Acyclic Graph is commonly known as a DAG.</li>
+</ul>
+<hr>
+<h2>2. Graph Representation</h2>
+<p>To store and work with graphs in a program, we need to represent them in memory. The two most common ways are the Adjacency Matrix and the Adjacency List.</p>
+<h3>a) Adjacency Matrix</h3>
+<p>An adjacency matrix is a square matrix of size V x V, where V is the number of vertices. The entry <code>matrix[i][j]</code> is 1 (or the edge weight) if there is an edge from vertex i to vertex j, and 0 otherwise.</p>
+<ul>
+<li><b>Pros:</b> Checking for an edge between two vertices is very fast (O(1)).</li>
+<li><b>Cons:</b> It consumes a lot of space (O(V^2)), which is inefficient for sparse graphs (graphs with few edges).</li>
+</ul>
+<h3>b) Adjacency List</h3>
+<p>An adjacency list is an array of lists. The size of the array is equal to the number of vertices. An entry <code>adj[i]</code> contains a list of all vertices that are adjacent to vertex i.</p>
+<ul>
+<li><b>Pros:</b> Space efficient for sparse graphs (O(V + E)). Iterating through all neighbors of a vertex is efficient.</li>
+<li><b>Cons:</b> Checking for a specific edge (u, v) can take time proportional to the degree of vertex u.</li>
+</ul>
+<hr>
+<h2>3. Graph Traversal Algorithms</h2>
+<p>Graph traversal is the process of visiting (checking and/or updating) each vertex in a graph. The most common traversal algorithms are Breadth-First Search (BFS) and Depth-First Search (DFS).</p>
+<h3>a) Breadth-First Search (BFS)</h3>
+<p>BFS explores the graph layer by layer. It starts at a source vertex, explores all its immediate neighbors, then their neighbors, and so on. It uses a queue data structure.</p>
+<ul>
+<li><b>Algorithm:</b>
+<ol>
+<li>Start with a source vertex, add it to a queue, and mark it as visited.</li>
+<li>While the queue is not empty, dequeue a vertex 'u'.</li>
+<li>For each unvisited neighbor 'v' of 'u', mark 'v' as visited and enqueue it.</li>
+</ol>
+</li>
+<li><b>Applications:</b> Finding the shortest path in an unweighted graph, finding connected components, level order traversal in trees.</li>
+<li><b>LeetCode Problems:</b>
+<ul>
+<li><a href="https://leetcode.com/problems/number-of-islands/">200. Number of Islands</a></li>
+<li><a href="https://leetcode.com/problems/rotting-oranges/">994. Rotting Oranges</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">102. Binary Tree Level Order Traversal</a></li>
+</ul>
+</li>
+</ul>
+<h3>b) Depth-First Search (DFS)</h3>
+<p>DFS explores the graph by going as deep as possible along each branch before backtracking. It uses a stack (often implicitly through recursion).</p>
+<ul>
+<li><b>Algorithm:</b>
+<ol>
+<li>Start with a source vertex 'u', mark it as visited.</li>
+<li>For each unvisited neighbor 'v' of 'u', recursively call DFS on 'v'.</li>
+</ol>
+</li>
+<li><b>Applications:</b> Cycle detection, finding connected components, topological sorting, solving puzzles like mazes.</li>
+<li><b>LeetCode Problems:</b>
+<ul>
+<li><a href="https://leetcode.com/problems/number-of-islands/">200. Number of Islands</a> (Can be solved with DFS too)</li>
+<li><a href="https://leetcode.com/problems/clone-graph/">133. Clone Graph</a></li>
+<li><a href="https://leetcode.com/problems/max-area-of-island/">695. Max Area of Island</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>4. Topological Sort</h2>
+<p>Topological sorting for a Directed Acyclic Graph (DAG) is a linear ordering of its vertices such that for every directed edge from vertex u to vertex v, u comes before v in the ordering. It is not possible if the graph has a cycle.</p>
+<h3>Kahn's Algorithm (BFS-based)</h3>
+<p>This is a common algorithm for topological sorting.</p>
+<ul>
+<li><b>Algorithm:</b>
+<ol>
+<li>Compute the in-degree (number of incoming edges) for each vertex.</li>
+<li>Initialize a queue with all vertices that have an in-degree of 0.</li>
+<li>While the queue is not empty, dequeue a vertex 'u' and add it to the result list.</li>
+<li>For each neighbor 'v' of 'u', decrement the in-degree of 'v'. If the in-degree of 'v' becomes 0, enqueue it.</li>
+</ol>
+</li>
+<li><b>Applications:</b> Task scheduling, dependency resolution in software builds, course prerequisite ordering.</li>
+<li><b>LeetCode Problems:</b>
+<ul>
+<li><a href="https://leetcode.com/problems/course-schedule/">207. Course Schedule</a></li>
+<li><a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>5. Shortest Path Algorithms</h2>
+<p>These algorithms find the shortest path (in terms of weight) between vertices in a weighted graph.</p>
+<h3>a) Dijkstra's Algorithm</h3>
+<p>Finds the shortest path from a single source vertex to all other vertices in a graph with <b>non-negative</b> edge weights. It is a greedy algorithm that uses a priority queue.</p>
+<ul>
+<li><b>Applications:</b> Network routing protocols, finding the shortest way on a map.</li>
+<li><b>LeetCode Problems:</b>
+<ul>
+<li><a href="https://leetcode.com/problems/network-delay-time/">743. Network Delay Time</a></li>
+<li><a href="https://leetcode.com/problems/path-with-minimum-effort/">1631. Path With Minimum Effort</a></li>
+</ul>
+</li>
+</ul>
+<h3>b) Bellman-Ford Algorithm</h3>
+<p>Finds the shortest path from a single source vertex to all other vertices. It is slower than Dijkstra's but can handle graphs with <b>negative</b> edge weights. It can also detect negative weight cycles.</p>
+<h3>c) Floyd-Warshall Algorithm</h3>
+<p>An algorithm for finding the shortest paths between all pairs of vertices in a weighted graph (All-Pairs Shortest Path). It uses dynamic programming and works with negative weights, but not negative weight cycles.</p>
+<hr>
+<h2>6. Minimum Spanning Tree (MST)</h2>
+<p>A Minimum Spanning Tree (MST) of a connected, undirected, weighted graph is a subgraph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.</p>
+<h3>a) Prim's Algorithm</h3>
+<p>A greedy algorithm that builds the MST by starting with an arbitrary vertex and adding the cheapest possible connection from the tree to another vertex at each step.</p>
+<h3>b) Kruskal's Algorithm</h3>
+<p>A greedy algorithm that finds an MST by sorting all edges by weight and adding them to the tree as long as they do not form a cycle. It often uses a Disjoint Set Union (DSU) data structure to detect cycles efficiently.</p>
+<ul>
+<li><b>Applications:</b> Network design (e.g., laying electrical cables or water pipes to connect cities at minimum cost).</li>
+<li><b>LeetCode Problems:</b>
+<ul>
+<li><a href="https://leetcode.com/problems/min-cost-to-connect-all-points/">1584. Min Cost to Connect All Points</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>7. Other Important Concepts</h2>
+<h3>a) Cycle Detection</h3>
+<p>The process of determining if a graph contains a cycle. The method differs for directed and undirected graphs.</p>
+<ul>
+<li><b>Undirected Graph:</b> Use DFS. If we encounter a visited vertex that is not the parent of the current vertex in the DFS tree, a cycle exists.</li>
+<li><b>Directed Graph:</b> Use DFS. Keep track of the recursion stack. If we encounter a vertex that is already in the current recursion stack, a cycle exists. This is key to solving the Course Schedule problem.</li>
+<li><b>LeetCode Problem:</b> <a href="https://leetcode.com/problems/course-schedule/">207. Course Schedule</a></li>
+</ul>
+<h3>b) Bipartite Graph</h3>
+<p>A graph whose vertices can be divided into two disjoint and independent sets, U and V, such that every edge connects a vertex in U to one in V. A graph is bipartite if and only if it does not contain any odd-length cycles. This can be checked using graph coloring with two colors (via BFS or DFS).</p>
+<ul>
+<li><b>LeetCode Problem:</b> <a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></li>
+</ul>
+</body>
+</html>

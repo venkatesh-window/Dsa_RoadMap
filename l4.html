@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search - Complete Beginner's Guide</title>
+</head>
+<body>
+    <h1>Binary Search Complete Guide</h1>
+    
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#section1">1. What is Binary Search?</a></li>
+        <li><a href="#section2">2. How Binary Search Works</a></li>
+        <li><a href="#section3">3. Binary Search on 1D Arrays</a></li>
+        <li><a href="#section4">4. Binary Search on 2D Arrays</a></li>
+        <li><a href="#section5">5. Search Space Concept</a></li>
+        <li><a href="#section6">6. LeetCode Problems</a></li>
+        <li><a href="#section7">7. Common Mistakes</a></li>
+    </ul>
+
+    <!-- Section 1: What is Binary Search -->
+    <h2 id="section1">1. What is Binary Search?</h2>
+    <p><strong>Binary Search</strong> is a searching algorithm used to find the position of a target value in a <strong>sorted array</strong>.</p>
+    
+    <h3>Key Points:</h3>
+    <ul>
+        <li>Works only on <strong>sorted arrays</strong></li>
+        <li>Time Complexity: <strong>O(log n)</strong> - very efficient</li>
+        <li>Space Complexity: <strong>O(1)</strong> for iterative approach</li>
+        <li>Much faster than linear search (O(n)) for large arrays</li>
+    </ul>
+
+    <h3>Real Life Example:</h3>
+    <p>Imagine searching for a word in a dictionary. You don't start from page 1. You open the middle and check if your word comes before or after that page.</p>
+
+    <!-- Section 2: How Binary Search Works -->
+    <h2 id="section2">2. How Binary Search Works</h2>
+    
+    <h3>Step-by-Step Process:</h3>
+    <ol>
+        <li>Start with the entire sorted array</li>
+        <li>Find the middle element</li>
+        <li>Compare middle element with target:
+            <ul>
+                <li>If equal → Found!</li>
+                <li>If target is smaller → Search left half</li>
+                <li>If target is larger → Search right half</li>
+            </ul>
+        </li>
+        <li>Repeat until found or search space is empty</li>
+    </ol>
+
+    <h3>Visual Example:</h3>
+    <pre>
+Array: [2, 5, 8, 12, 16, 23, 38, 45, 67]
+Target: 23
+
+Step 1: Middle = 16 (index 4), 23 > 16 → Search right
+Step 2: Middle = 38 (index 6), 23 < 38 → Search left  
+Step 3: Middle = 23 (index 5) → Found!
+    </pre>
+
+    <h3>Basic Code Template:</h3>
+    <pre>
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (arr[mid] === target) {
+            return mid; // Found
+        } else if (arr[mid] < target) {
+            left = mid + 1; // Search right
+        } else {
+            right = mid - 1; // Search left
+        }
+    }
+    
+    return -1; // Not found
+}
+    </pre>
+
+    <!-- Section 3: Binary Search on 1D Arrays -->
+    <h2 id="section3">3. Binary Search on 1D Arrays</h2>
+    
+    <h3>Standard Binary Search:</h3>
+    <p>The most basic form where we search for exact match in sorted array.</p>
+
+    <h3>Variations:</h3>
+    <ul>
+        <li><strong>First Occurrence:</strong> Find first index of target in sorted array with duplicates</li>
+        <li><strong>Last Occurrence:</strong> Find last index of target</li>
+        <li><strong>Ceil of Target:</strong> Smallest element >= target</li>
+        <li><strong>Floor of Target:</strong> Largest element <= target</li>
+    </ul>
+
+    <h3>First Occurrence Code:</h3>
+    <pre>
+function firstOccurrence(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    let result = -1;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (arr[mid] === target) {
+            result = mid;
+            right = mid - 1; // Continue searching left
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return result;
+}
+    </pre>
+
+    <!-- Section 4: Binary Search on 2D Arrays -->
+    <h2 id="section4">4. Binary Search on 2D Arrays</h2>
+    
+    <h3>Types of 2D Array Problems:</h3>
+    
+    <h4>4.1 Row-wise Sorted Matrix</h4>
+    <p>Each row is sorted individually, but columns may not be sorted.</p>
+    <pre>
+Example:
+[
+  [1, 3, 5, 7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 60]
+]
+    </pre>
+
+    <h4>4.2 Completely Sorted Matrix</h4>
+    <p>Both rows and columns are sorted.</p>
+    <pre>
+Example:
+[
+  [1, 4, 7, 11],
+  [2, 5, 8, 12],
+  [3, 6, 9, 16],
+  [10, 13, 14, 17]
+]
+    </pre>
+
+    <h3>Search in Row-wise Sorted Matrix:</h3>
+    <pre>
+function searchMatrix(matrix, target) {
+    if (!matrix.length || !matrix[0].length) return false;
+    
+    let rows = matrix.length;
+    let cols = matrix[0].length;
+    let left = 0;
+    let right = rows * cols - 1;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let midValue = matrix[Math.floor(mid / cols)][mid % cols];
+        
+        if (midValue === target) {
+            return true;
+        } else if (midValue < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return false;
+}
+    </pre>
+
+    <!-- Section 5: Search Space Concept -->
+    <h2 id="section5">5. Search Space Concept</h2>
+    
+    <p><strong>Search Space</strong> refers to the range of possible answers we're searching through.</p>
+
+    <h3>Types of Search Space Problems:</h3>
+    
+    <h4>5.1 Finding Square Root</h4>
+    <p>Find integer square root of a number using binary search.</p>
+    <pre>
+function sqrt(x) {
+    if (x < 2) return x;
+    
+    let left = 1;
+    let right = Math.floor(x / 2);
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let square = mid * mid;
+        
+        if (square === x) {
+            return mid;
+        } else if (square < x) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return right; // Return floor value
+}
+    </pre>
+
+    <h4>5.2 Finding Minimum in Rotated Sorted Array</h4>
+    <p>Array was sorted but then rotated at some pivot.</p>
+    <pre>
+function findMin(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    
+    return nums[left];
+}
+    </pre>
+
+    <!-- Section 6: LeetCode Problems -->
+    <h2 id="section6">6. LeetCode Problems</h2>
+    
+    <h3>Easy Problems:</h3>
+    <ul>
+        <li><strong>704. Binary Search</strong> - Basic binary search implementation</li>
+        <li><strong>35. Search Insert Position</strong> - Find insert position in sorted array</li>
+        <li><strong>278. First Bad Version</strong> - Find first bad version in sequence</li>
+        <li><strong>374. Guess Number Higher or Lower</strong> - Number guessing game</li>
+    </ul>
+
+    <h3>Medium Problems:</h3>
+    <ul>
+        <li><strong>34. Find First and Last Position in Sorted Array</strong> - Search range</li>
+        <li><strong>33. Search in Rotated Sorted Array</strong> - Search in rotated array</li>
+        <li><strong>74. Search a 2D Matrix</strong> - Search in row-wise sorted matrix</li>
+        <li><strong>240. Search a 2D Matrix II</strong> - Search in completely sorted matrix</li>
+        <li><strong>162. Find Peak Element</strong> - Find local peak</li>
+        <li><strong>153. Find Minimum in Rotated Sorted Array</strong> - Find min in rotated array</li>
+    </ul>
+
+    <h3>Hard Problems:</h3>
+    <ul>
+        <li><strong>4. Median of Two Sorted Arrays</strong> - Find median of two arrays</li>
+        <li><strong>410. Split Array Largest Sum</strong> - Binary search on answer</li>
+        <li><strong>875. Koko Eating Bananas</strong> - Binary search on speed</li>
+    </ul>
+
+    <h3>Problem Walkthrough - 704. Binary Search:</h3>
+    <pre>
+Problem: Given sorted array and target, return index if found, else -1.
+
+Example:
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+
+Solution:
+function search(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (nums[mid] === target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1;
+}
+    </pre>
+
+    <!-- Section 7: Common Mistakes -->
+    <h2 id="section7">7. Common Mistakes & Tips</h2>
+    
+    <h3>Common Mistakes:</h3>
+    <ul>
+        <li><strong>Infinite loops:</strong> Using wrong condition (left < right vs left <= right)</li>
+        <li><strong>Integer overflow:</strong> Using (left + right) / 2 instead of left + (right - left) / 2</li>
+        <li><strong>Off-by-one errors:</strong> Forgetting mid ± 1 updates</li>
+        <li><strong>Unsorted input:</strong> Not checking if array is sorted</li>
+    </ul>
+
+    <h3>Best Practices:</h3>
+    <ul>
+        <li>Always check if array is empty first</li>
+        <li>Use consistent variable names (left, right, mid)</li>
+        <li>Test edge cases: empty array, single element, target at boundaries</li>
+        <li>Understand when to use left <= right vs left < right</li>
+        <li>Practice different variations (first/last occurrence, ceil/floor)</li>
+    </ul>
+
+    <h3>When to Use Binary Search:</h3>
+    <ul>
+        <li>Array is sorted (or can be sorted)</li>
+        <li>Looking for O(log n) time complexity</li>
+        <li>Problem involves finding boundaries or ranges</li>
+        <li>Search space can be divided into two parts</li>
+    </ul>
+
+    <hr>
+    <h2>Summary</h2>
+    <p>Binary Search is a fundamental algorithm that every programmer should master. Start with the basic template, practice variations, and gradually move to more complex problems. Remember the key principle: <strong>divide and conquer</strong>!</p>
+
+    <p><strong>Next Steps:</strong> Practice the easy problems first, then move to medium ones. Focus on understanding the patterns rather than memorizing solutions.</p>
+
+</body>
+</html>l

@@ -1,0 +1,171 @@
+<h1>Bit Manipulation</h1>
+
+<h2>Introduction</h2>
+
+<p>Bit manipulation is the act of algorithmically manipulating bits or other pieces of data shorter than a byte. It involves direct control of bits at the hardware level, making it extremely efficient for certain operations. This technique is fundamental in low-level programming, cryptography, and optimization problems.</p>
+
+<h2>Why Learn Bit Manipulation?</h2>
+
+<ul>
+<li>Direct hardware control leads to faster execution</li>
+<li>More memory-efficient operations</li>
+<li>Essential for systems programming and embedded systems</li>
+<li>Common in technical interviews and competitive programming</li>
+</ul>
+
+<h2>Binary Number System</h2>
+
+<p>Computers store all data in binary format using bits (0s and 1s). Understanding binary representation is crucial for bit manipulation.</p>
+
+<h3>Binary Basics</h3>
+
+<ul>
+<li>Each bit represents a power of 2</li>
+<li>Rightmost bit is the least significant bit (LSB)</li>
+<li>Leftmost bit is the most significant bit (MSB)</li>
+<li>Numbers can be represented in different bases: decimal, binary, hexadecimal</li>
+</ul>
+
+<h2>Bitwise Operators</h2>
+
+<h3>AND (&)</h3>
+
+<p>Returns 1 only if both bits are 1</p>
+<p>Example: 5 & 3 = 1 (101 & 011 = 001)</p>
+
+<h3>OR (|)</h3>
+
+<p>Returns 1 if at least one bit is 1</p>
+<p>Example: 5 | 3 = 7 (101 | 011 = 111)</p>
+
+<h3>XOR (^)</h3>
+
+<p>Returns 1 only if bits are different</p>
+<p>Example: 5 ^ 3 = 6 (101 ^ 011 = 110)</p>
+
+<h3>NOT (~)</h3>
+
+<p>Flips all bits (1's complement)</p>
+<p>Example: ~5 = -6 (in 32-bit system)</p>
+
+<h3>Left Shift (<<)</h3>
+
+<p>Shifts bits to the left, filling with 0s</p>
+<p>Example: 5 << 1 = 10 (101 becomes 1010)</p>
+
+<h3>Right Shift (>>)</h3>
+
+<p>Shifts bits to the right</p>
+<p>Example: 5 >> 1 = 2 (101 becomes 10)</p>
+
+<h2>Important Bit Manipulation Concepts</h2>
+
+<h3>Setting a Bit</h3>
+
+<p>Use OR operation with a mask: num | (1 << position)</p>
+
+<h3>Clearing a Bit</h3>
+
+<p>Use AND operation with complement: num & ~(1 << position)</p>
+
+<h3>Toggling a Bit</h3>
+
+<p>Use XOR operation: num ^ (1 << position)</p>
+
+<h3>Checking if Bit is Set</h3>
+
+<p>Use AND operation: (num & (1 << position)) != 0</p>
+
+<h3>Counting Set Bits</h3>
+
+<p>Use Brian Kernighan's algorithm or built-in functions</p>
+
+<h3>Power of Two Check</h3>
+
+<p>A number is power of two if (n & (n-1)) == 0 and n > 0</p>
+
+<h2>Common Bit Manipulation Techniques</h2>
+
+<h3>Masking</h3>
+
+<p>Using bit masks to extract specific bits</p>
+
+<h3>Bit Mask Operations</h3>
+
+<ul>
+<li>Create mask: mask = (1 << n) - 1</li>
+<li>Extract bits: value & mask</li>
+<li>Set bits: value | mask</li>
+<li>Clear bits: value & ~mask</li>
+</ul>
+
+<h3>Swapping Numbers</h3>
+
+<p>Using XOR to swap without temporary variable:</p>
+<p>a = a ^ b</p>
+<p>b = a ^ b</p>
+<p>a = a ^ b</p>
+
+<h3>Finding Unique Element</h3>
+
+<p>Using XOR to find element that appears odd number of times</p>
+
+<h2>LeetCode Problems</h2>
+
+<h3>Easy Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/number-of-1-bits/">191. Number of 1 Bits</a></li>
+<li><a href="https://leetcode.com/problems/reverse-bits/">190. Reverse Bits</a></li>
+<li><a href="https://leetcode.com/problems/single-number/">136. Single Number</a></li>
+<li><a href="https://leetcode.com/problems/missing-number/">268. Missing Number</a></li>
+<li><a href="https://leetcode.com/problems/power-of-two/">231. Power of Two</a></li>
+</ul>
+
+<h3>Medium Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/single-number-iii/">260. Single Number III</a></li>
+<li><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></li>
+<li><a href="https://leetcode.com/problems/sum-of-two-integers/">371. Sum of Two Integers</a></li>
+<li><a href="https://leetcode.com/problems/bitwise-and-of-numbers-range/">201. Bitwise AND of Numbers Range</a></li>
+<li><a href="https://leetcode.com/problems/counting-bits/">338. Counting Bits</a></li>
+</ul>
+
+<h3>Hard Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/sudoku-solver/">37. Sudoku Solver</a></li>
+<li><a href="https://leetcode.com/problems/n-queens/">51. N-Queens</a></li>
+<li><a href="https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/">421. Maximum XOR of Two Numbers in an Array</a></li>
+</ul>
+
+<h2>Practice Tips</h2>
+
+<ul>
+<li>Start with basic operations and understand binary representation</li>
+<li>Practice converting between decimal and binary manually</li>
+<li>Solve problems in increasing order of difficulty</li>
+<li>Understand time and space complexity of bit operations</li>
+<li>Learn common patterns and tricks</li>
+</ul>
+
+<h2>Common Interview Questions</h2>
+
+<ul>
+<li>Check if a number is power of two</li>
+<li>Count number of set bits</li>
+<li>Find the single number in array</li>
+<li>Swap two numbers without temporary variable</li>
+<li>Reverse bits of a number</li>
+<li>Find missing number in array</li>
+</ul>
+
+<h2>Additional Resources</h2>
+
+<ul>
+<li>HackerEarth Bit Manipulation Tutorial</li>
+<li>GeeksforGeeks Bit Manipulation Articles</li>
+<li>CP-Algorithms Bit Manipulation Guide</li>
+<li>LeetCode Bit Manipulation Study Plan</li>
+</ul>

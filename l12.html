@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Greedy Algorithms Tutorial</title>
+</head>
+<body>
+<h1>Greedy Algorithms</h1>
+
+<h2>Introduction to Greedy Algorithms</h2>
+
+<p>A greedy algorithm is a simple, intuitive algorithm that makes the optimal choice at each small step with the hope of finding a global optimum. It builds up a solution piece by piece, always choosing the next piece that offers the most immediate benefit.</p>
+
+<h2>Key Characteristics</h2>
+
+<ul>
+<li><strong>Greedy Choice Property:</strong> A global optimum can be arrived at by selecting local optimums</li>
+<li><strong>Optimal Substructure:</strong> An optimal solution contains optimal solutions to subproblems</li>
+<li>Never reconsider choices once they're made</li>
+<li>Usually efficient but doesn't always guarantee global optimum</li>
+</ul>
+
+<h2>When to Use Greedy Algorithms</h2>
+
+<ul>
+<li>Problems where local optimal choices lead to global optimum</li>
+<li>Optimization problems</li>
+<li>Scheduling problems</li>
+<li>Graph problems (Minimum Spanning Tree, Shortest Path)</li>
+<li>Compression algorithms (Huffman coding)</li>
+</ul>
+
+<h2>Common Greedy Algorithm Patterns</h2>
+
+<ul>
+<li>Activity Selection</li>
+<li>Coin Change (when greedy works)</li>
+<li>Fractional Knapsack</li>
+<li>Interval Scheduling</li>
+<li>Huffman Coding</li>
+</ul>
+
+<hr>
+
+<h2>Easy Level Greedy Problems</h2>
+
+<h3>1. Assign Cookies</h3>
+
+<p><strong>Problem:</strong> Assume you are an awesome parent and want to give your children some cookies. Each child i has a greed factor g[i], and each cookie j has a size s[j]. A child i will be content if they get a cookie j where s[j] >= g[i]. Maximize the number of content children.</p>
+<p><strong>Greedy Approach:</strong> Sort both arrays and try to satisfy the least greedy children with the smallest adequate cookies.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/assign-cookies/" target="_blank">455. Assign Cookies</a></p>
+
+<h3>2. Lemonade Change</h3>
+
+<p><strong>Problem:</strong> At a lemonade stand, each lemonade costs $5. Customers pay with either $5, $10, or $20 bills. You must provide correct change to each customer. Return true if you can provide every customer with correct change.</p>
+<p><strong>Greedy Approach:</strong> Always use larger bills first when giving change to preserve smaller bills for future transactions.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/lemonade-change/" target="_blank">860. Lemonade Change</a></p>
+
+<h3>3. Best Time to Buy and Sell Stock II</h3>
+
+<p><strong>Problem:</strong> Given prices where prices[i] is the price of a stock on the i-th day, find the maximum profit. You may complete as many transactions as you like.</p>
+<p><strong>Greedy Approach:</strong> Buy whenever the price increases from previous day and sell the next day.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank">122. Best Time to Buy and Sell Stock II</a></p>
+
+<h3>4. Valid Parenthesis String</h3>
+
+<p><strong>Problem:</strong> Given a string containing only '(', ')' and '', where '' can be either '(', ')' or empty string, determine if the string is valid.</p>
+<p><strong>Greedy Approach:</strong> Track the minimum and maximum possible open parentheses count.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/valid-parenthesis-string/" target="_blank">678. Valid Parenthesis String</a></p>
+
+<hr>
+
+<h2>Medium/Hard Level Greedy Problems</h2>
+
+<h3>1. Jump Game II</h3>
+
+<p><strong>Problem:</strong> Given an array of non-negative integers where each element represents your maximum jump length from that position, find the minimum number of jumps to reach the last index.</p>
+<p><strong>Greedy Approach:</strong> Use BFS-like approach, at each step determine the farthest reachable position.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/jump-game-ii/" target="_blank">45. Jump Game II</a></p>
+
+<h3>2. Candy</h3>
+
+<p><strong>Problem:</strong> There are n children standing in a line. Each child is assigned a rating value. You need to give candies to these children such that: each child has at least one candy; children with higher rating get more candies than their neighbors.</p>
+<p><strong>Greedy Approach:</strong> Two passes - left to right and right to left, ensuring both neighbors conditions are satisfied.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/candy/" target="_blank">135. Candy</a></p>
+
+<h3>3. Task Scheduler</h3>
+
+<p><strong>Problem:</strong> Given a characters array tasks, representing tasks CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. There is a non-negative integer n that represents the cooldown period between two same tasks. Find the least number of units of time the CPU will take to finish all tasks.</p>
+<p><strong>Greedy Approach:</strong> Schedule the most frequent tasks first, using the cooling period for other tasks.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/task-scheduler/" target="_blank">621. Task Scheduler</a></p>
+
+<h3>4. Remove K Digits</h3>
+
+<p><strong>Problem:</strong> Given string num representing a non-negative integer and an integer k, return the smallest possible integer after removing k digits from the number.</p>
+<p><strong>Greedy Approach:</strong> Use a monotonic stack to remove larger digits from left when possible.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/remove-k-digits/" target="_blank">402. Remove K Digits</a></p>
+
+<h3>5. Reorganize String</h3>
+
+<p><strong>Problem:</strong> Given a string s, rearrange the characters so that any two adjacent characters are not the same. If possible, return any possible result; otherwise, return empty string.</p>
+<p><strong>Greedy Approach:</strong> Use max heap to always place the most frequent character that isn't the last used character.</p>
+<p><strong>LeetCode:</strong> <a href="https://leetcode.com/problems/reorganize-string/" target="_blank">767. Reorganize String</a></p>
+
+<h2>Important Notes</h2>
+
+<ul>
+<li>Greedy algorithms don't always produce optimal solutions</li>
+<li>Always prove that greedy choice leads to global optimum</li>
+<li>When in doubt, try to find counterexamples</li>
+<li>Many greedy problems can also be solved with dynamic programming</li>
+</ul>
+
+<h2>Practice Strategy</h2>
+
+<ol>
+<li>Start with easy problems to understand the greedy mindset</li>
+<li>Move to medium problems to recognize greedy patterns</li>
+<li>Practice hard problems to handle edge cases and complex scenarios</li>
+<li>Always try to prove why greedy works for each problem</li>
+</ol>
+
+</body>
+</html>

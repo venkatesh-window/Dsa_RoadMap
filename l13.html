@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>Binary Trees: Traversals and Problems</title>
+</head>
+<body>
+<h1>Binary Trees: Traversals and Problems</h1>
+
+<h2>1. Binary Tree Traversals</h2>
+
+<h3>Depth-First Search (DFS) Traversals</h3>
+
+<h4>Inorder Traversal (Left-Root-Right)</h4>
+
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Traverse the left subtree</li>
+<li>Visit the root node</li>
+<li>Traverse the right subtree</li>
+</ol>
+<p><strong>Use Cases:</strong> Returns nodes in non-decreasing order for BSTs</p>
+
+<h4>Preorder Traversal (Root-Left-Right)</h4>
+
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Visit the root node</li>
+<li>Traverse the left subtree</li>
+<li>Traverse the right subtree</li>
+</ol>
+<p><strong>Use Cases:</strong> Copying trees, serialization</p>
+
+<h4>Postorder Traversal (Left-Right-Root)</h4>
+
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Traverse the left subtree</li>
+<li>Traverse the right subtree</li>
+<li>Visit the root node</li>
+</ol>
+<p><strong>Use Cases:</strong> Deleting trees, expression tree evaluation</p>
+
+<h3>Breadth-First Search (BFS) Traversal</h3>
+
+<h4>Level Order Traversal</h4>
+
+<p><strong>Algorithm:</strong></p>
+<ol>
+<li>Use a queue to process nodes level by level</li>
+<li>Visit nodes at each level from left to right</li>
+</ol>
+<p><strong>Use Cases:</strong> Finding depth, level-specific operations</p>
+
+<h2>2. LeetCode Problems</h2>
+
+<h3>Easy Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/">94. Binary Tree Inorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/">144. Binary Tree Preorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/">145. Binary Tree Postorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">102. Binary Tree Level Order Traversal</a></li>
+<li><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/invert-binary-tree/">226. Invert Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/symmetric-tree/">101. Symmetric Tree</a></li>
+<li><a href="https://leetcode.com/problems/path-sum/">112. Path Sum</a></li>
+</ul>
+
+<h3>Medium Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/">103. Binary Tree Zigzag Level Order Traversal</a></li>
+<li><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">105. Construct Binary Tree from Preorder and Inorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/validate-binary-search-tree/">98. Validate Binary Search Tree</a></li>
+<li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">230. Kth Smallest Element in a BST</a></li>
+<li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. Lowest Common Ancestor of a Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-right-side-view/">199. Binary Tree Right Side View</a></li>
+<li><a href="https://leetcode.com/problems/subtree-of-another-tree/">572. Subtree of Another Tree</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">107. Binary Tree Level Order Traversal II</a></li>
+</ul>
+
+<h3>Hard Problems</h3>
+
+<ul>
+<li><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/">297. Serialize and Deserialize Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/">124. Binary Tree Maximum Path Sum</a></li>
+<li><a href="https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/">987. Vertical Order Traversal of a Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/recover-binary-search-tree/">99. Recover Binary Search Tree</a></li>
+<li><a href="https://leetcode.com/problems/sum-of-distances-in-tree/">834. Sum of Distances in Tree</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-cameras/">968. Binary Tree Cameras</a></li>
+<li><a href="https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/">2096. Step-By-Step Directions From a Binary Tree Node to Another</a></li>
+</ul>
+
+<h2>3. Implementation Examples</h2>
+
+<h3>Recursive Inorder Traversal</h3>
+
+<pre>
+void inorder(TreeNode root) {
+    if (root == null) return;
+    inorder(root.left);
+    System.out.print(root.val + " ");
+    inorder(root.right);
+}
+</pre>
+
+<h3>Iterative Level Order Traversal</h3>
+
+<pre>
+void levelOrder(TreeNode root) {
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        TreeNode current = queue.poll();
+        System.out.print(current.val + " ");
+        if (current.left != null) queue.add(current.left);
+        if (current.right != null) queue.add(current.right);
+    }
+}
+</pre>
+
+<h2>4. Key Concepts</h2>
+
+<ul>
+<li><strong>Tree Height:</strong> Maximum depth from root to leaf</li>
+<li><strong>Balanced Tree:</strong> Height difference between subtrees ≤ 1</li>
+<li><strong>Complete Binary Tree:</strong> All levels filled except possibly last, nodes left-aligned</li>
+<li><strong>Full Binary Tree:</strong> Every node has 0 or 2 children</li>
+<li><strong>Binary Search Tree:</strong> Left subtree nodes ≤ root ≤ right subtree nodes</li>
+</ul>
+
+<h2>5. Time & Space Complexity</h2>
+
+<table border="1">
+<tr><th>Traversal</th><th>Time Complexity</th><th>Space Complexity</th></tr>
+<tr><td>Inorder/Preorder/Postorder</td><td>O(n)</td><td>O(h) [Best: O(log n), Worst: O(n)]</td></tr>
+<tr><td>Level Order</td><td>O(n)</td><td>O(w) [w = maximum width]</td></tr>
+</table>
+
+</body>
+</html>

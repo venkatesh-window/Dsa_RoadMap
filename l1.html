@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Programming Fundamentals Study Guide</title>
+<style>
+body {
+  font-family: Arial;
+  margin: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+
+h2 {
+  color: darkblue;
+  border-bottom: 2px solid darkblue;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: darkblue;
+}
+
+.code {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-left: 3px solid darkblue;
+  margin: 10px 0;
+  font-family: monospace;
+  white-space: pre;
+}
+
+.topic {
+  margin-bottom: 30px;
+}
+
+.problems {
+  background-color: #e6f2ff;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+a {
+  color: darkblue;
+}
+</style>
+</head>
+<body>
+
+<h1>Programming Fundamentals Study Guide</h1>
+
+<div class="topic">
+<h2>Location 1: Core Programming Fundamentals</h2>
+
+<h3>1. Data Types</h3>
+<p><b>Concept:</b> The classification of data that tells the compiler how the programmer intends to use it. Defines the operations that can be performed, the meaning of the data, and how it is stored.</p>
+<p><b>Primitive Types:</b></p>
+<ul>
+<li>int: Integer numbers (e.g., 5, -10)</li>
+<li>float, double: Floating-point numbers for decimals (e.g., 3.14)</li>
+<li>char: Single character (e.g., 'a', '$')</li>
+<li>boolean: Represents true or false</li>
+</ul>
+<p><b>Non-Primitive/Reference Types:</b></p>
+<ul>
+<li>String: A sequence of characters (e.g., "Hello")</li>
+<li>Array: A collection of elements of the same type</li>
+</ul>
+<p><b>Key Idea:</b> Understanding memory allocation and the range of values each type can hold is crucial.</p>
+
+<h3>2. If-Else Statements</h3>
+<p><b>Concept:</b> A fundamental control flow statement that allows you to execute different blocks of code based on certain conditions.</p>
+<p><b>Syntax:</b></p>
+<div class="code">if (condition1) {
+    // code block A
+} else if (condition2) {
+    // code block B
+} else {
+    // code block C
+}</div>
+<p><b>Key Idea:</b> Conditions must evaluate to a boolean (true or false).</p>
+
+<h3>3. Switch Statement</h3>
+<p><b>Concept:</b> A multi-way branch statement that allows a variable to be tested for equality against a list of values (cases).</p>
+<p><b>Syntax:</b></p>
+<div class="code">switch (expression) {
+    case value1:
+        // code
+        break;
+    case value2:
+        // code
+        break;
+    default:
+        // code if no case matches
+}</div>
+<p><b>Key Idea:</b> More efficient and readable than long if-else-if chains when comparing the same variable.</p>
+
+<h3>4. Arrays & Strings</h3>
+<p><b>Arrays:</b></p>
+<ul>
+<li><b>Concept:</b> A data structure consisting of a collection of elements, each identified by an array index. Stored in contiguous memory locations.</li>
+<li><b>Key Operations:</b> Access (arr[i]), Insertion, Deletion, Traversal.</li>
+<li><b>Key Idea:</b> Size is fixed upon creation in most languages.</li>
+</ul>
+<p><b>Strings:</b></p>
+<ul>
+<li><b>Concept:</b> An array of characters. In many languages (like Java), they are immutable objects.</li>
+<li><b>Key Operations:</b> Concatenation, Substring, Comparison, Searching.</li>
+<li><b>Key Idea:</b> Knowing the immutability of strings is critical for performance.</li>
+</ul>
+
+<h3>5. For Loops</h3>
+<p><b>Concept:</b> A repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times.</p>
+<p><b>Syntax:</b></p>
+<div class="code">for (initialization; condition; update) {
+    // code to be repeated
+}</div>
+<p><b>Use Case:</b> Ideal when the number of iterations is known beforehand (e.g., iterating over an array).</p>
+
+<h3>6. While Loops</h3>
+<p><b>Concept:</b> A control flow statement that allows code to be executed repeatedly based on a given boolean condition. The loop runs as long as the condition is true.</p>
+<p><b>Syntax:</b></p>
+<div class="code">while (condition) {
+    // code to be repeated
+}</div>
+<p><b>Use Case:</b> Ideal when the number of iterations is not known and depends on a dynamic condition.</p>
+
+<h3>7. Functions (Pass by Reference vs. Value)</h3>
+<p><b>Pass by Value:</b></p>
+<ul>
+<li>A copy of the actual parameter's value is passed to the function.</li>
+<li>Changes made to the parameter inside the function do not affect the original argument.</li>
+<li>Common for primitive data types (e.g., int, char).</li>
+</ul>
+<p><b>Pass by Reference:</b></p>
+<ul>
+<li>A reference (memory address) of the actual parameter is passed to the function.</li>
+<li>Changes made to the parameter inside the function affect the original argument.</li>
+<li>Common for non-primitive data types (e.g., Array, Object).</li>
+</ul>
+<p><b>Key Idea:</b> Understanding this distinction prevents unexpected bugs. In Java, it's "Pass by Value" always, but for objects, the value is the reference to the object.</p>
+
+<h3>8. Time Complexity (Basics)</h3>
+<p><b>Concept:</b> A way to describe how the runtime of an algorithm scales with the size of the input data (n).</p>
+<p><b>Common Complexities (Fastest to Slowest):</b></p>
+<ul>
+<li>O(1): Constant Time (e.g., accessing an array element by index)</li>
+<li>O(log n): Logarithmic Time (e.g., binary search)</li>
+<li>O(n): Linear Time (e.g., iterating through an array once)</li>
+<li>O(n²): Quadratic Time (e.g., nested loops iterating over the same array)</li>
+</ul>
+<p><b>Key Idea:</b> The goal is to choose or design algorithms that can handle large n efficiently.</p>
+</div>
+
+<div class="topic">
+<h2>Location 2: Build-up Logical Thinking</h2>
+
+<h3>Patterns</h3>
+<p><b>Concept:</b> Solving pattern problems (like pyramids, triangles, number sequences) is the best way to build and solidify your understanding of nested loops and control flow.</p>
+<p><b>Approach:</b></p>
+<ol>
+<li>Identify the number of rows (n). The outer loop will run this many times.</li>
+<li>For each row i, figure out:
+<ul>
+<li>How many spaces are needed? (Usually n - i)</li>
+<li>How many characters/numbers to print? (Often related to i)</li>
+<li>What is the sequence? (Increasing, decreasing, alternating)</li>
+</ul>
+</li>
+</ol>
+<div class="problems">
+<p><b>LeetCode Problems:</b></p>
+<ul>
+<li>While not direct pattern problems, these use similar logic:</li>
+<li><a href="https://leetcode.com/problems/fizz-buzz/">Fizz Buzz</a> (Basic Control Flow)</li>
+<li><a href="https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/">1342. Number of Steps to Reduce a Number to Zero</a></li>
+</ul>
+</div>
+</div>
+
+<div class="topic">
+<h2>Location 3: Learn STL / Java Collections</h2>
+
+<p><b>Concept:</b> A library of ready-to-use, highly efficient data structures and algorithms. Essential for writing clean and fast code without reinventing the wheel.</p>
+<p><b>Key Java Collections Framework Components:</b></p>
+<ul>
+<li><b>List</b> (Interface): Ordered collection (can have duplicates)
+<ul>
+<li>ArrayList: Resizable array. Fast random access.</li>
+<li>LinkedList: Doubly-linked list. Fast insertions/deletions at ends.</li>
+</ul>
+</li>
+<li><b>Set</b> (Interface): Collection of unique elements
+<ul>
+<li>HashSet: Uses a hash table. O(1) average time for operations.</li>
+<li>TreeSet: Stores elements in a sorted tree. O(log n) time.</li>
+</ul>
+</li>
+<li><b>Map</b> (Interface): Object that maps keys to values (key-value pairs)
+<ul>
+<li>HashMap: O(1) performance for get and put.</li>
+<li>TreeMap: Sorted order by keys. O(log n).</li>
+</ul>
+</li>
+<li><b>Queue</b> (Interface): Designed for holding elements prior to processing (FIFO - First-In-First-Out)</li>
+<li><b>Stack</b> (Class): LIFO (Last-In-First-Out) data structure</li>
+</ul>
+<div class="problems">
+<p><b>LeetCode Problems:</b></p>
+<ul>
+<li><a href="https://leetcode.com/problems/two-sum/">1. Two Sum</a> (Perfect for HashMap)</li>
+<li><a href="https://leetcode.com/problems/valid-parentheses/">20. Valid Parentheses</a> (Perfect for Stack)</li>
+<li><a href="https://leetcode.com/problems/linked-list-cycle/">141. Linked List Cycle</a> (Uses HashSet)</li>
+</ul>
+</div>
+</div>
+
+<div class="topic">
+<h2>Location 4: Know Basic Maths</h2>
+
+<p><b>1. Count Digits</b></p>
+<ul>
+<li><b>Concept:</b> Find the number of digits in an integer.</li>
+<li><b>Approach:</b> Repeatedly divide the number by 10 until it becomes 0, counting the steps. O(d) where d is the number of digits.</li>
+</ul>
+
+<p><b>2. Reverse a Number</b></p>
+<ul>
+<li><b>Concept:</b> Form a new number by processing the digits from right to left.</li>
+<li><b>Approach:</b> Use while(n > 0), extract the last digit (n % 10), build the reversed number (rev = rev * 10 + digit), and remove the last digit (n / 10).</li>
+</ul>
+
+<p><b>3. Check Palindrome</b></p>
+<ul>
+<li><b>Concept:</b> A number/string that reads the same forwards and backwards.</li>
+<li><b>Approach:</b> Reverse the number/string and compare it with the original.</li>
+</ul>
+
+<p><b>4. GCD / HCF</b></p>
+<ul>
+<li><b>Concept:</b> The largest positive integer that divides both numbers without a remainder.</li>
+<li><b>Approach:</b> Use the Euclidean Algorithm: gcd(a, b) = gcd(b, a % b) until b == 0.</li>
+</ul>
+
+<p><b>5. Armstrong Numbers</b></p>
+<ul>
+<li><b>Concept:</b> A number that is equal to the sum of its own digits each raised to the power of the number of digits. (e.g., 153 = 1³ + 5³ + 3³).</li>
+</ul>
+
+<p><b>6. Print all Divisors</b></p>
+<ul>
+<li><b>Concept:</b> Find all numbers that divide a given number n evenly.</li>
+<li><b>Optimal Approach:</b> Iterate from 1 to sqrt(n). If i divides n, then both i and n/i are divisors.</li>
+</ul>
+
+<p><b>7. Check for Prime</b></p>
+<ul>
+<li><b>Concept:</b> A number greater than 1 that has no positive divisors other than 1 and itself.</li>
+<li><b>Optimal Approach:</b> Check for factors from 2 to sqrt(n). If any number divides n, it's not prime.</li>
+</ul>
+
+<div class="problems">
+<p><b>LeetCode Problems:</b></p>
+<ul>
+<li><a href="https://leetcode.com/problems/palindrome-number/">9. Palindrome Number</a></li>
+<li><a href="https://leetcode.com/problems/reverse-integer/">7. Reverse Integer</a></li>
+<li><a href="https://leetcode.com/problems/count-primes/">204. Count Primes</a></li>
+</ul>
+</div>
+</div>
+
+<div class="topic">
+<h2>Location 5: Learn Basic Recursion</h2>
+
+<p><b>Concept:</b> A method where the solution to a problem depends on solutions to smaller instances of the same problem. A function calls itself.</p>
+<p><b>Key Components:</b></p>
+<ol>
+<li><b>Base Case:</b> The condition(s) under which the recursion stops. Prevents infinite loops and stack overflow.</li>
+<li><b>Recursive Call:</b> The function calling itself with a modified, smaller argument, working towards the base case.</li>
+</ol>
+<p><b>How to Think:</b></p>
+<ul>
+<li><b>Faith & Expectation:</b> Have faith that your recursive function works for a smaller input. Define what you expect from that smaller call. Then, write code to combine the result of the smaller call with the current step to solve the larger problem.</li>
+</ul>
+<p><b>Example Problems & LeetCode Equivalents:</b></p>
+<ul>
+<li>Print 1 to N / N to 1 -> LeetCode equivalent: <a href="https://leetcode.com/problems/print-in-order/">Print in Order</a> (Conceptually similar, though often solved with concurrency)</li>
+<li>Sum of first N numbers -> <a href="https://leetcode.com/problems/fibonacci-number/">509. Fibonacci Number</a> (The classic introductory DP/recursion problem)</li>
+<li>Factorial -> (Fundamental concept)</li>
+<li>Reverse an array -> <a href="https://leetcode.com/problems/reverse-string/">344. Reverse String</a></li>
+<li>Check if a string is palindrome -> <a href="https://leetcode.com/problems/valid-palindrome/">125. Valid Palindrome</a></li>
+</ul>
+</div>
+
+<div class="topic">
+<h2>Location 6: Learn Basic Hashing</h2>
+
+<p><b>Concept:</b> A technique used to map data of arbitrary size to fixed-size values (keys) for fast access. The primary data structure used is a Hash Table (in Java, HashMap or HashSet).</p>
+<p><b>Why Use It?</b> Provides average O(1) time complexity for insertion, deletion, and lookup.</p>
+<p><b>Key Operations:</b></p>
+<ul>
+<li>put(key, value) / add(key)</li>
+<li>get(key) / contains(key)</li>
+<li>remove(key)</li>
+</ul>
+<p><b>Common Use Cases:</b></p>
+<ol>
+<li><b>Frequency Counting:</b> Track how many times an element appears.</li>
+<li><b>Duplicate Checking:</b> Quickly check if an element has been seen before.</li>
+<li><b>Mapping Relationships:</b> Store key-value pairs (e.g., a person's name to their phone number).</li>
+</ol>
+<div class="problems">
+<p><b>LeetCode Problems:</b></p>
+<ul>
+<li><a href="https://leetcode.com/problems/contains-duplicate/">217. Contains Duplicate</a> (Basic HashSet)</li>
+<li><a href="https://leetcode.com/problems/two-sum/">1. Two Sum</a> (Classic HashMap problem)</li>
+<li><a href="https://leetcode.com/problems/first-unique-character-in-a-string/">387. First Unique Character in a String</a> (Frequency counting with HashMap)</li>
+<li><a href="https://leetcode.com/problems/majority-element/">169. Majority Element</a> (Find the highest frequency element)</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

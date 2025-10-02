@@ -1,0 +1,161 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Linked List Comprehensive Guide</title>
+</head>
+<body>
+<h1>Linked List Data Structure</h1>
+<p>A linked list is a linear data structure where elements are stored in nodes, and each node points to the next node in the sequence.</p>
+
+<h2>Single Linked List</h2>
+<h3>Structure and Definition</h3>
+<p>A singly linked list consists of nodes where each node contains:</p>
+<ul>
+<li>Data field</li>
+<li>Pointer/reference to the next node</li>
+</ul>
+<p>The list ends with a node pointing to NULL.</p>
+
+<h3>Basic Operations</h3>
+<h4>1. Traversal</h4>
+<p>Visit each node sequentially starting from head until NULL is reached.</p>
+
+<h4>2. Insertion</h4>
+<ul>
+<li><strong>At beginning:</strong> O(1) time complexity</li>
+<li><strong>At end:</strong> O(n) time complexity</li>
+<li><strong>At specific position:</strong> O(n) time complexity</li>
+</ul>
+
+<h4>3. Deletion</h4>
+<ul>
+<li><strong>From beginning:</strong> O(1) time complexity</li>
+<li><strong>From end:</strong> O(n) time complexity</li>
+<li><strong>Specific node:</strong> O(n) time complexity</li>
+</ul>
+
+<h4>4. Search</h4>
+<p>Linear search with O(n) time complexity.</p>
+
+<h2>Doubly Linked List</h2>
+<h3>Structure and Definition</h3>
+<p>Each node contains:</p>
+<ul>
+<li>Data field</li>
+<li>Pointer to next node</li>
+<li>Pointer to previous node</li>
+</ul>
+<p>Provides bidirectional traversal but requires more memory.</p>
+
+<h3>Advantages over Singly Linked List</h3>
+<ul>
+<li>Bidirectional traversal</li>
+<li>Easier deletion of specific nodes</li>
+<li>Can traverse backwards</li>
+</ul>
+
+<h3>Disadvantages</h3>
+<ul>
+<li>Extra memory for previous pointer</li>
+<li>More complex operations</li>
+</ul>
+
+<h2>Medium Difficulty LeetCode Problems</h2>
+
+<h3>1. Add Two Numbers</h3>
+<p><a href="https://leetcode.com/problems/add-two-numbers/">LeetCode Problem 2</a></p>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
+
+<h3>2. Remove Nth Node From End of List</h3>
+<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">LeetCode Problem 19</a></p>
+<p>Given the head of a linked list, remove the nth node from the end of the list and return its head.</p>
+
+<h3>3. Swap Nodes in Pairs</h3>
+<p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">LeetCode Problem 24</a></p>
+<p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+
+<h3>4. Copy List with Random Pointer</h3>
+<p><a href="https://leetcode.com/problems/copy-list-with-random-pointer/">LeetCode Problem 138</a></p>
+<p>Construct a deep copy of a linked list where each node has an additional random pointer which could point to any node in the list or null.</p>
+
+<h3>5. LRU Cache</h3>
+<p><a href="https://leetcode.com/problems/lru-cache/">LeetCode Problem 146</a></p>
+<p>Design a data structure that follows the constraints of a Least Recently Used (LRU) cache using doubly linked list and hash map.</p>
+
+<h3>6. Reverse Linked List II</h3>
+<p><a href="https://leetcode.com/problems/reverse-linked-list-ii/">LeetCode Problem 92</a></p>
+<p>Reverse a linked list from position left to position right.</p>
+
+<h2>Hard Difficulty LeetCode Problems</h2>
+
+<h3>1. Merge k Sorted Lists</h3>
+<p><a href="https://leetcode.com/problems/merge-k-sorted-lists/">LeetCode Problem 23</a></p>
+<p>Merge k sorted linked lists and return it as one sorted list.</p>
+
+<h3>2. Reverse Nodes in k-Group</h3>
+<p><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/">LeetCode Problem 25</a></p>
+<p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.</p>
+
+<h3>3. LFU Cache</h3>
+<p><a href="https://leetcode.com/problems/lfu-cache/">LeetCode Problem 460</a></p>
+<p>Design and implement a data structure for a Least Frequently Used (LFU) cache using multiple doubly linked lists.</p>
+
+<h3>4. All O(1) Data Structure</h3>
+<p><a href="https://leetcode.com/problems/all-oone-data-structure/">LeetCode Problem 432</a></p>
+<p>Design a data structure that supports all operations in O(1) time complexity using doubly linked list and hash maps.</p>
+
+<h3>5. Design Linked List</h3>
+<p><a href="https://leetcode.com/problems/design-linked-list/">LeetCode Problem 707</a></p>
+<p>Design your implementation of the linked list with comprehensive operations.</p>
+
+<h2>Key Concepts and Techniques</h2>
+
+<h3>Two Pointer Technique</h3>
+<p>Used for finding middle element, detecting cycles, and finding nth node from end.</p>
+
+<h3>Dummy Nodes</h3>
+<p>Helpful in handling edge cases and simplifying operations at head.</p>
+
+<h3>Fast and Slow Pointers</h3>
+<p>Essential for cycle detection and finding middle element efficiently.</p>
+
+<h3>Recursion</h3>
+<p>Useful for reversal operations and certain types of traversals.</p>
+
+<h3>Sentinel Nodes</h3>
+<p>Dummy nodes that simplify boundary condition handling.</p>
+
+<h2>Time and Space Complexity Analysis</h2>
+
+<table border="1">
+<tr><th>Operation</th><th>Singly Linked List</th><th>Doubly Linked List</th></tr>
+<tr><td>Access</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Search</td><td>O(n)</td><td>O(n)</td></tr>
+<tr><td>Insertion at head</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Insertion at tail</td><td>O(n)</td><td>O(1)*</td></tr>
+<tr><td>Deletion at head</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Deletion at tail</td><td>O(n)</td><td>O(1)*</td></tr>
+<tr><td>General deletion</td><td>O(n)</td><td>O(1)*</td></tr>
+</table>
+<p>*With reference to the node to be deleted</p>
+
+<h2>Common Patterns and Problem Solving Approaches</h2>
+
+<h3>1. Cycle Detection</h3>
+<p>Use Floyd's Cycle Finding Algorithm (Tortoise and Hare).</p>
+
+<h3>2. List Reversal</h3>
+<p>Iterative and recursive approaches for partial or complete reversal.</p>
+
+<h3>3. Merge Patterns</h3>
+<p>Merge two sorted lists, merge k sorted lists using divide and conquer.</p>
+
+<h3>4. Intersection Problems</h3>
+<p>Find intersection point of two linked lists using length difference or two pointers.</p>
+
+<h3>5. Sorting Linked Lists</h3>
+<p>Merge sort is most efficient for linked lists with O(n log n) time and O(1) space.</p>
+
+</body>
+</html>
